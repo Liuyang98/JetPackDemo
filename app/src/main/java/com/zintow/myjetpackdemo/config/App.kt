@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 
 class App : Application(), ViewModelStoreOwner {
+    private lateinit var context: Context
     private lateinit var vmStore: ViewModelStore
     private var mFactory: ViewModelProvider.Factory? = null
-    private lateinit var context: Context
 
     override fun onCreate() {
         super.onCreate()
