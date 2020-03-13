@@ -8,4 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--指定状态栏颜色-->
+    <style name="ColorStatusBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <!--使导航栏和状态栏可绘制（android5.0以上支持）,即状态栏是否覆盖在ContentView上，在styles.xml(v21)中设置-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <!--沉浸式透明状态栏-->
+    <style name="TransparentStatusBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!--设置是否半透明-->
+        <item name="android:windowTranslucentStatus">false</item>
+        <!--设置状态栏颜色-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--透明导航栏（android4.4以上支持），在styles.xml(v19)中设置，true后布局可改在在状态栏位置-->
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
 </resources>

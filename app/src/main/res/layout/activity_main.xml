@@ -4,28 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="user"
-            type="com.zintow.myjetpackdemo.bean.UserBean" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:gravity="center"
-            android:text="@{user.name}"
-            android:textColor="#ddd"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <fragment
             android:id="@+id/fragment_main_home"
@@ -35,8 +17,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:layout="@layout/fragment_main_home" />
+
+<!--        android:adjustViewBounds：设置ImageView是否调整自己的边界来保持所显示图片的长宽比-->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:maxHeight="300dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/bg_home" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
