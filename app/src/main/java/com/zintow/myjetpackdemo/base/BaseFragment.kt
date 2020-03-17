@@ -1,7 +1,6 @@
 package com.zintow.myjetpackdemo.base
 
 import android.content.Context
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider

@@ -55,8 +55,6 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
         //TODO 编写LiveData用法
         val nb = MainHomeBean()
         nb.tip = "11223"
-        vm.liveData.setValue(nb)
-
-
+        vm.liveData.value = nb
     }
 }
