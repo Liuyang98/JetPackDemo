@@ -25,4 +25,8 @@
         <!--透明导航栏（android4.4以上支持），在styles.xml(v19)中设置，true后布局可改在在状态栏位置-->
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
