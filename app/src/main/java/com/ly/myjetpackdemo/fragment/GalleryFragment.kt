@@ -1,4 +1,4 @@
-package com.zintow.myjetpackdemo.fragment
+package com.ly.myjetpackdemo.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.zintow.myjetpackdemo.R
-import com.zintow.myjetpackdemo.base.BaseFragment
-import com.zintow.myjetpackdemo.viewmodel.GalleryViewModel
+import com.ly.myjetpackdemo.base.BaseFragment
+import com.ly.myjetpackdemo.viewmodel.GalleryViewModel
 
 class GalleryFragment : BaseFragment() {
 

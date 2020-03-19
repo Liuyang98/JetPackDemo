@@ -1,12 +1,13 @@
-package com.zintow.myjetpackdemo
+package com.ly.myjetpackdemo
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.zintow.myjetpackdemo.base.BaseActivity
-import com.zintow.myjetpackdemo.bean.MainHomeBean
-import com.zintow.myjetpackdemo.config.App
+import com.ly.myjetpackdemo.base.BaseActivity
+import com.ly.myjetpackdemo.bean.MainHomeBean
+import com.ly.myjetpackdemo.config.App
 import com.zintow.myjetpackdemo.databinding.ActivityDemoBinding
-import com.zintow.myjetpackdemo.viewmodel.MainHomeViewModel
+import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
+import com.zintow.myjetpackdemo.R
 
 
 class DemoActivity : BaseActivity() {

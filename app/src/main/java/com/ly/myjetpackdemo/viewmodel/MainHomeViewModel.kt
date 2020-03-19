@@ -1,10 +1,9 @@
-package com.zintow.myjetpackdemo.viewmodel
+package com.ly.myjetpackdemo.viewmodel
 
-import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.zintow.myjetpackdemo.bean.MainHomeBean
+import com.ly.myjetpackdemo.bean.MainHomeBean
 
 
 /**
@@ -18,8 +17,8 @@ import com.zintow.myjetpackdemo.bean.MainHomeBean
  * Create by KunMinX at 19/10/29
  */
 class MainHomeViewModel:ViewModel() {
-    var hasUser:ObservableBoolean=ObservableBoolean()
     var title: ObservableField<String> =ObservableField()
     var liveData: MutableLiveData<MainHomeBean> =MutableLiveData()
+    var stateBarTop: MutableLiveData<Int> =MutableLiveData()
 
 }

@@ -1,9 +1,9 @@
-package com.zintow.myjetpackdemo.base
+package com.ly.myjetpackdemo.base
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.zintow.myjetpackdemo.config.App
+import com.ly.myjetpackdemo.config.App
 
 @SuppressLint("Registered")
 open class BaseActivity : AppCompatActivity() {

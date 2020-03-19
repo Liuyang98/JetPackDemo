@@ -3,7 +3,7 @@
     package="com.zintow.myjetpackdemo">
 
     <application
-        android:name=".config.App"
+        android:name="com.ly.myjetpackdemo.config.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.ly.myjetpackdemo.activity.MainActivity"
             android:theme="@style/TransparentStatusBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

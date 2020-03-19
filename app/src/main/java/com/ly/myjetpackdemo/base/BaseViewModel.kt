@@ -1,4 +1,4 @@
-package com.zintow.myjetpackdemo.base
+package com.ly.myjetpackdemo.base
 
 import androidx.lifecycle.ViewModel
 

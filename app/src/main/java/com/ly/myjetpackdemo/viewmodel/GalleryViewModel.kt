@@ -1,4 +1,4 @@
-package com.zintow.myjetpackdemo.viewmodel
+package com.ly.myjetpackdemo.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,10 +1,10 @@
-package com.zintow.myjetpackdemo.base
+package com.ly.myjetpackdemo.base
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.zintow.myjetpackdemo.config.App
+import com.ly.myjetpackdemo.config.App
 
 open class BaseFragment : Fragment() {
     lateinit var mActivity: AppCompatActivity

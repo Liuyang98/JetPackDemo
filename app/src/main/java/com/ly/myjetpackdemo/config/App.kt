@@ -1,4 +1,4 @@
-package com.zintow.myjetpackdemo.config
+package com.ly.myjetpackdemo.config
 
 import android.app.Activity
 import android.app.Application
@@ -27,7 +27,6 @@ class App : Application(), ViewModelStoreOwner {
     fun getAppViewModelProvider(activity: Activity): ViewModelProvider {
         return ViewModelProvider(this, getAppFactory(activity))
     }
-
 
     private fun getAppFactory(activity: Activity): ViewModelProvider.Factory {
         val application: Application = checkApplication(activity)
