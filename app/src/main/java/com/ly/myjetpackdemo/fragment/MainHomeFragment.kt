@@ -5,11 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.lifecycle.Observer
 import com.zintow.myjetpackdemo.R
 import com.ly.myjetpackdemo.base.BaseFragment
 import com.ly.myjetpackdemo.bean.MainHomeBean
+import com.ly.myjetpackdemo.util.DensityUtil
 import com.zintow.myjetpackdemo.databinding.FragmentMainHomeBinding
 import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
 
@@ -48,7 +49,7 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
     private fun init() {
         bind.btn.setOnClickListener(this)
         vm.title.set("标题")
-//        vm.liveData.value = MainHomeBean("tip")
+        vm.liveData.value = MainHomeBean("tip")
         vm.liveData.observe(viewLifecycleOwner, Observer { Log.e(TAG, "数据发生改变:") })
         vm.stateBarTop.observe(viewLifecycleOwner, Observer {
             changeTitle(it)
@@ -56,9 +57,11 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun changeTitle(stateTop: Int) {
-        val lp: FrameLayout.LayoutParams = bind.coorLayout.layoutParams as FrameLayout.LayoutParams
-        lp.setMargins(0, stateTop, 0, 0)
-        bind.coorLayout.layoutParams = lp
+        val titleHeight=DensityUtil.dp2px(150F)+stateTop;
+        bind.appBar.layoutParams.height=titleHeight
+        val lp: CoordinatorLayout.LayoutParams = bind.constraintLayout.layoutParams as CoordinatorLayout.LayoutParams
+        lp.setMargins(0, titleHeight, 0, 0)
+        bind.constraintLayout.layoutParams = lp
     }
 
     override fun onClick(v: View?) {

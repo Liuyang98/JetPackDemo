@@ -9,9 +9,12 @@ import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 
 class App : Application(), ViewModelStoreOwner {
-    private lateinit var context: Context
     private lateinit var vmStore: ViewModelStore
     private var mFactory: ViewModelProvider.Factory? = null
+
+    companion object StaticParams {
+        lateinit var context: Context
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -27,6 +30,7 @@ class App : Application(), ViewModelStoreOwner {
     fun getAppViewModelProvider(activity: Activity): ViewModelProvider {
         return ViewModelProvider(this, getAppFactory(activity))
     }
+
 
     private fun getAppFactory(activity: Activity): ViewModelProvider.Factory {
         val application: Application = checkApplication(activity)

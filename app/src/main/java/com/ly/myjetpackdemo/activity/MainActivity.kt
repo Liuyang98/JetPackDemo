@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.WindowInsets
 import androidx.annotation.RequiresApi
