@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil.bind
 import androidx.recyclerview.widget.RecyclerView
 import com.ly.myjetpackdemo.base.BaseRecyclerAdapter
 import com.ly.myjetpackdemo.bean.CityEntity
+import com.ly.myjetpackdemo.util.glide.GlideUtil
 import com.zintow.myjetpackdemo.R
 import com.zintow.myjetpackdemo.databinding.ItemCitySelBinding
 
@@ -25,8 +26,9 @@ class CityAdapter(mContext: Context, mDatas: List<Any>) : BaseRecyclerAdapter<Re
     }
 
     private fun bindMediaViewHolder(holder: FriendViewHolder, entity: CityEntity) {
-        holder.bind.tv.text = entity.getValue()
+        holder.bind.tv.text = entity.title
         holder.bind.entity = entity
+        GlideUtil.setImageView(holder.bind.iv,entity.imgUrl)
     }
 
     private inner class FriendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
