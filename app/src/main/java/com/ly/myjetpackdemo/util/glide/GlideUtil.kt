@@ -14,7 +14,7 @@ object GlideUtil {
     /**
      * 加载网络图片_基础
      */
-    fun setImageView(imageView: ImageView, url: String?) {
+    fun setImageView(imageView: ImageView, url: String) {
         val options = RequestOptions()
         Glide.with(imageView.context)
                 .load(url)
@@ -25,7 +25,7 @@ object GlideUtil {
     /**
      * 加载网络图片_自定义圆角
      */
-    fun setRoundImageView(imageView: ImageView, url: String?) {
+    fun setRoundImageView(imageView: ImageView, url: String) {
         val options = RequestOptions()
                 .override(imageView.width, imageView.height)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -36,21 +36,6 @@ object GlideUtil {
                 .into(imageView)
     }
 
-    fun setRoundImageViewAuto(
-            imageView: ImageView,
-            url: String?,
-            width: Int,
-            height: Int
-    ) {
-        imageView.scaleType = ImageView.ScaleType.FIT_XY
-        val options = RequestOptions()
-                .override(width, height)
-                .transform(GlideRoundTransformCenterCrop(DEFAULT_RADIO))
-        Glide.with(imageView.context)
-                .load(url)
-                .apply(options)
-                .into(imageView)
-    }
 
     fun setCircleImageView(imageView: ImageView, url: Int) {
         val options = RequestOptions()
@@ -64,10 +49,7 @@ object GlideUtil {
     /**
      * 加载网络图片_圆形
      */
-    fun setLocalCircleImageView(
-            imageView: ImageView,
-            url: String?
-    ) {
+    fun setLocalCircleImageView(imageView: ImageView, url: String) {
         val options = RequestOptions()
                 .transform(GlideCircleTransform())
         Glide.with(imageView.context)
@@ -88,7 +70,7 @@ object GlideUtil {
     /**
      * 加载本地图片
      */
-    fun setLocalImageView(imageView: ImageView, url: String?) {
+    fun setLocalImageView(imageView: ImageView, url: String) {
         Glide.with(imageView.context)
                 .load(url)
                 .into(imageView)
