@@ -28,7 +28,6 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e(TAG, "onCreate")
         vm = getFragmentViewModelProvider(this).get(MainHomeViewModel::class.java)
     }
 

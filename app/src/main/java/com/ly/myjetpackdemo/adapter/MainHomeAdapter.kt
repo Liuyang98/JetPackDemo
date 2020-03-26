@@ -9,17 +9,16 @@ import com.ly.myjetpackdemo.base.BaseRecyclerAdapter
 import com.ly.myjetpackdemo.bean.CityEntity
 import com.ly.myjetpackdemo.util.glide.GlideUtil
 import com.zintow.myjetpackdemo.R
-import com.zintow.myjetpackdemo.databinding.ItemCitySelBinding
+import com.zintow.myjetpackdemo.databinding.ItemMainHomeBinding
 
 /**
  * 城市列表（一级） 适配器
  */
-class CityAdapter(mContext: Context, mDatas: List<Any>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>(mContext, mDatas) {
+class MainHomeAdapter(mContext: Context, mDatas: List<Any>) : BaseRecyclerAdapter<RecyclerView.ViewHolder>(mContext, mDatas) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return FriendViewHolder(initView(parent, R.layout.item_city_sel))
+        return FriendViewHolder(initView(parent, R.layout.item_main_home))
     }
-
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         bindMediaViewHolder(holder as FriendViewHolder, mDatas[position] as CityEntity)
@@ -32,11 +31,13 @@ class CityAdapter(mContext: Context, mDatas: List<Any>) : BaseRecyclerAdapter<Re
     }
 
     private inner class FriendViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var bind: ItemCitySelBinding = bind(itemView)!!
-        override fun onClick(v: View) {}
-
+        var bind: ItemMainHomeBinding = bind(itemView)!!
         init {
             itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View) {
+
         }
     }
 }

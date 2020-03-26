@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ly.myjetpackdemo.adapter.CityAdapter
+import com.ly.myjetpackdemo.adapter.MainHomeAdapter
 import com.ly.myjetpackdemo.base.BaseFragment
 import com.ly.myjetpackdemo.bean.CityEntity
 import com.ly.myjetpackdemo.viewmodel.IndexViewModel
@@ -14,7 +14,7 @@ import com.zintow.myjetpackdemo.databinding.FragmentIndexBinding
 
 class IndexFragment : BaseFragment() {
     private lateinit var indexViewModel: IndexViewModel
-    private lateinit var adapter: CityAdapter
+    private lateinit var adapter: MainHomeAdapter
     private lateinit var bind: FragmentIndexBinding
     private val datas: MutableList<CityEntity> =ArrayList()
 
@@ -42,7 +42,7 @@ class IndexFragment : BaseFragment() {
         for (i in 0..9) {
             datas.add(CityEntity("标题：$i",imgUrl[i]))
         }
-        adapter= CityAdapter(mActivity, datas)
+        adapter= MainHomeAdapter(mActivity, datas)
         bind.rv.layoutManager=LinearLayoutManager(mActivity)
         bind.rv.adapter = adapter
     }

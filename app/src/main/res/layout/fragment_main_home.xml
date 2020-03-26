@@ -21,9 +21,18 @@
             android:layout_height="60dp"
             android:theme="@style/AppTheme.AppBarOverlay">
 
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="#FFF"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:toolbarId="@+id/toolbar">
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
+                app:layout_collapseMode="pin"
                 android:layout_height="match_parent"
                 app:contentInsetStart="0dp"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
@@ -37,6 +46,8 @@
                     android:src="@mipmap/bg_home" />
 
             </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
