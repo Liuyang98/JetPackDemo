@@ -16,7 +16,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.Li
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
 
 object MagicIndictorHelper {
-    fun init(context: Context, titles: Array<String?>?, magicIndicator: MagicIndicator, viewPager: ViewPager): CommonNavigator {
+    fun init(context: Context, titles: Array<String>, magicIndicator: MagicIndicator, viewPager: ViewPager): CommonNavigator {
         val commonNavigator = CommonNavigator(context)
         commonNavigator.isAdjustMode = true // 自适应模式
         commonNavigator.isSkimOver = true
@@ -24,7 +24,7 @@ object MagicIndictorHelper {
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val simplePagerTitleView: SimplePagerTitleView = ThreePagerTitleView(context)
-                simplePagerTitleView.text = titles!![index]
+                simplePagerTitleView.text = titles[index]
                 simplePagerTitleView.textSize = 17f
                 simplePagerTitleView.normalColor = -0x666667
                 simplePagerTitleView.width = dp2px(80f)
@@ -41,7 +41,7 @@ object MagicIndictorHelper {
             }
 
             override fun getCount(): Int {
-                return titles?.size ?: 0
+                return titles.size
             }
         }
 
