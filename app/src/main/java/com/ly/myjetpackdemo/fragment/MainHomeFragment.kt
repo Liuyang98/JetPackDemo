@@ -29,12 +29,7 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
         vm = getFragmentViewModelProvider(this).get(MainHomeViewModel::class.java)
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main_home, container, false)
         bind = FragmentMainHomeBinding.bind(view)
         bind.vm = vm
@@ -54,7 +49,7 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
         fragments.add(GalleryFragment())
         fragments.add(GalleryFragment())
         MagicIndictorHelper.init(mActivity, TITLES, bind.magicTabLayout, bind.vp)
-        bind.vp.adapter = fragmentManager?.let { BasePagerAdapter(it, fragments) }
+        bind.vp.adapter = BasePagerAdapter(parentFragmentManager, fragments)
     }
 
     //如何进行Activity-Fragment之间的通信

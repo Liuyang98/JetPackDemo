@@ -2,7 +2,7 @@ package com.ly.myjetpackdemo.viewmodel
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.ly.myjetpackdemo.base.BaseViewModel
 import com.ly.myjetpackdemo.bean.MainHomeBean
 
 
@@ -16,9 +16,9 @@ import com.ly.myjetpackdemo.bean.MainHomeBean
  * <p>
  * Create by KunMinX at 19/10/29
  */
-class MainHomeViewModel:ViewModel() {
-    var title: ObservableField<String> =ObservableField()
-    var liveData: MutableLiveData<MainHomeBean> =MutableLiveData()
-    var stateBarTop: MutableLiveData<Int> =MutableLiveData()
+class MainHomeViewModel : BaseViewModel() {
+    var title: ObservableField<String> = ObservableField()
+    var liveData: MutableLiveData<MainHomeBean> = MutableLiveData()
+    var stateBarTop: MutableLiveData<Int> = MutableLiveData()
 
 }

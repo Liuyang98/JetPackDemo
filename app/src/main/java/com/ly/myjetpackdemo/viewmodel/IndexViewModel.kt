@@ -2,9 +2,9 @@ package com.ly.myjetpackdemo.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.ly.myjetpackdemo.base.BaseViewModel
 
-class IndexViewModel : ViewModel() {
+class IndexViewModel : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"
