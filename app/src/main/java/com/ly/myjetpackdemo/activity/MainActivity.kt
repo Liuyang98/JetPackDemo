@@ -19,7 +19,6 @@ import com.zintow.myjetpackdemo.databinding.ActivityMainBinding
 import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
 import java.lang.reflect.Method
 
-
 class MainActivity : BaseActivity() {
     private val TAG: String = "MAIN_ACT"
     private lateinit var bind: ActivityMainBinding
@@ -31,11 +30,11 @@ class MainActivity : BaseActivity() {
 
         bind = DataBindingUtil.setContentView(this, R.layout.activity_main)
         vm = (applicationContext as App).getAppViewModelProvider(this)
-            .get(MainHomeViewModel::class.java)
+                .get(MainHomeViewModel::class.java)
 
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
-            bind.drawerLayout
+                setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
+                bind.drawerLayout
         )
         bind.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
         bangCheck()
