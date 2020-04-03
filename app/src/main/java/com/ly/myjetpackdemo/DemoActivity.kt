@@ -9,7 +9,6 @@ import com.zintow.myjetpackdemo.databinding.ActivityDemoBinding
 import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
 import com.zintow.myjetpackdemo.R
 
-
 class DemoActivity : BaseActivity() {
     private lateinit var bind: ActivityDemoBinding
     private lateinit var vm: MainHomeViewModel
@@ -18,7 +17,7 @@ class DemoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView(this, R.layout.activity_demo)
         bind.lifecycleOwner = this
-        vm=  (applicationContext as App). getAppViewModelProvider(this).get(MainHomeViewModel::class.java)
+        vm = (applicationContext as App).getAppViewModelProvider(this).get(MainHomeViewModel::class.java)
 
         bind.imageView.setOnClickListener {
             val nb = MainHomeBean()
@@ -26,5 +25,4 @@ class DemoActivity : BaseActivity() {
             vm.liveData.value = nb
         }
     }
-
 }
