@@ -61,8 +61,8 @@ class MainActivity : BaseActivity() {
         window.decorView.post {
             val windowInsets: WindowInsets = window.decorView.rootWindowInsets
             // 当全屏顶部显示黑边时，getDisplayCutout()返回为null
-            val displayCutout = windowInsets.displayCutout
-            Log.e(TAG, "安全区域距离屏幕左边的距离 SafeInsetLeft:" + displayCutout!!.safeInsetLeft)
+            val displayCutout = windowInsets.displayCutout ?: return@post
+            Log.e(TAG, "安全区域距离屏幕左边的距离 SafeInsetLeft:" + displayCutout.safeInsetLeft)
             Log.e(TAG, "安全区域距离屏幕右部的距离 SafeInsetRight:" + displayCutout.safeInsetRight)
             Log.e(TAG, "安全区域距离屏幕顶部的距离 SafeInsetTop:" + displayCutout.safeInsetTop)
             Log.e(TAG, "安全区域距离屏幕底部的距离 SafeInsetBottom:" + displayCutout.safeInsetBottom)
