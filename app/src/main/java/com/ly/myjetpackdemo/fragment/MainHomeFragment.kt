@@ -62,11 +62,15 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
         })
     }
 
+    //TODO 检查这个 vm.stateBarTop.observe的回调时机
     private fun changeTitle(stateTop: Int) {
         if (bind.headLayout.tag == null) {
             bind.headLayout.tag = bind.headLayout.height + stateTop
+            bind.headLayout.layoutParams.height = bind.headLayout.tag as Int
+            bind.toolbar.layoutParams.height = 1
+            bind.toolbar.layoutParams = bind.toolbar.layoutParams
+            Log.e("输出", "change")
         }
-        bind.headLayout.layoutParams.height = bind.headLayout.tag as Int
     }
 
     override fun onClick(v: View) {

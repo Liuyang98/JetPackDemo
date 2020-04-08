@@ -20,5 +20,5 @@ class MainHomeViewModel : BaseViewModel() {
     var title: ObservableField<String> = ObservableField()
     var liveData: MutableLiveData<MainHomeBean> = MutableLiveData()
     var stateBarTop: MutableLiveData<Int> = MutableLiveData()
-
+    var testTop: Int=11
 }
