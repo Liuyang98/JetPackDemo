@@ -60,16 +60,17 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
         vm.stateBarTop.observe(viewLifecycleOwner, Observer {
             changeTitle(it)
         })
+        Log.e("输出：",":"+vm.stateBarTop.value)
     }
 
     //TODO 检查这个 vm.stateBarTop.observe的回调时机
-    private fun changeTitle(stateTop: Int) {
-        if (bind.headLayout.tag == null) {
+    private fun changeTitle(stateTop: Int?) {
+        if (bind.headLayout.tag == null && stateTop!=null) {
             bind.headLayout.tag = bind.headLayout.height + stateTop
             bind.headLayout.layoutParams.height = bind.headLayout.tag as Int
-            bind.toolbar.layoutParams.height = 1
+            bind.toolbar.layoutParams.height = stateTop
             bind.toolbar.layoutParams = bind.toolbar.layoutParams
-            Log.e("输出", "change")
+            Log.e("输出", "change$stateTop")
         }
     }
 

@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.zintow.myjetpackdemo.R
 import com.ly.myjetpackdemo.base.BaseActivity
 import com.ly.myjetpackdemo.config.App
+import com.ly.myjetpackdemo.util.AndroidUtil
 import com.zintow.myjetpackdemo.databinding.ActivityMainBinding
 import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
 import java.lang.reflect.Method
@@ -30,11 +31,11 @@ class MainActivity : BaseActivity() {
 
         bind = DataBindingUtil.setContentView(this, R.layout.activity_main)
         vm = (applicationContext as App).getAppViewModelProvider(this)
-                .get(MainHomeViewModel::class.java)
+            .get(MainHomeViewModel::class.java)
 
         appBarConfiguration = AppBarConfiguration(
-                setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
-                bind.drawerLayout
+            setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
+            bind.drawerLayout
         )
         bind.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
         bangCheck()
@@ -58,10 +59,16 @@ class MainActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.P)
     private fun getNotchParams() {
+        Log.e(TAG, "getNotchParams")
         window.decorView.post {
             val windowInsets: WindowInsets = window.decorView.rootWindowInsets
             // 当全屏顶部显示黑边时，getDisplayCutout()返回为null
-            val displayCutout = windowInsets.displayCutout ?: return@post
+            val displayCutout = windowInsets.displayCutout
+            if (displayCutout == null) {
+                vm.stateBarTop.value=AndroidUtil.getStatusHeight(this)
+                Log.e(TAG, "非刘海屏"+ vm.stateBarTop.value)
+                return@post
+            }
             Log.e(TAG, "安全区域距离屏幕左边的距离 SafeInsetLeft:" + displayCutout.safeInsetLeft)
             Log.e(TAG, "安全区域距离屏幕右部的距离 SafeInsetRight:" + displayCutout.safeInsetRight)
             Log.e(TAG, "安全区域距离屏幕顶部的距离 SafeInsetTop:" + displayCutout.safeInsetTop)
@@ -81,6 +88,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun domesticCheck() {
+        Log.e(TAG, "domesticCheck")
         hasNotch(this)
     }
 
