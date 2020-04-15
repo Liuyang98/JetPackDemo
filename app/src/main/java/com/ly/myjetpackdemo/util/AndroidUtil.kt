@@ -16,7 +16,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.ly.myjetpackdemo.base.BaseActivity
 import com.ly.myjetpackdemo.config.App
-import java.util.*
 
 /**
  * 与Android系统相关的工具类
@@ -25,19 +24,18 @@ import java.util.*
 object AndroidUtil {
     private var versionName: String? = null
     private var statusHeight = 0
-    private var uuid: String? = null
 
     /**
      * 获取系统版本号 android 4.4
      */
     val systemVersion: String
-        get() = Build.VERSION.RELEASE//
+        get() = Build.VERSION.RELEASE
 
     /**
      * 获取手机型号
      */
     val phoneType: String
-        get() = Build.MODEL //
+        get() = Build.MODEL
 
     /**
      * 获取手机厂商
@@ -60,8 +58,7 @@ object AndroidUtil {
      */
     fun getScreenWidth(context: Context): Int {
         if (widthPixels == 0) {
-            val wm = context.applicationContext
-                .getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val wm = context.applicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             val dm = DisplayMetrics()
             wm.defaultDisplay.getMetrics(dm)
             widthPixels = dm.widthPixels
@@ -69,12 +66,12 @@ object AndroidUtil {
         return widthPixels
     }
 
+
     /**
      * 获取屏幕高度
      */
     fun getScreenHeight(context: Context): Int {
-        val wm = context.applicationContext
-            .getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val wm = context.applicationContext.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val dm = DisplayMetrics()
         wm.defaultDisplay.getMetrics(dm)
         return dm.heightPixels
@@ -95,8 +92,7 @@ object AndroidUtil {
             try {
                 localClass = Class.forName("com.android.internal.R\$dimen")
                 val localObject = localClass.newInstance()
-                val i5 =
-                    localClass.getField("status_bar_height")[localObject].toString().toInt()
+                val i5 = localClass.getField("status_bar_height")[localObject].toString().toInt()
                 statusHeight = activity.resources.getDimensionPixelSize(i5)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -107,10 +103,8 @@ object AndroidUtil {
 
     fun getCurProcessName(context: Context): String {
         val pid = Process.myPid()
-        val activityManager =
-            context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val l =
-            activityManager.runningAppProcesses
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val l = activityManager.runningAppProcesses
         if (l != null) for (appProcess in l) {
             if (appProcess.pid == pid) {
                 return appProcess.processName
@@ -135,11 +129,8 @@ object AndroidUtil {
 
     fun hideKeyBorad(activity: BaseActivity) {
         // 先隐藏键盘
-        (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-            .hideSoftInputFromWindow(
-                activity.currentFocus?.windowToken
-                , InputMethodManager.HIDE_NOT_ALWAYS
-            )
+        (activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(
+                activity.currentFocus?.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
         //接下来在这里做你自己想要做的事，实现自己的业务。
     }
 
@@ -147,8 +138,8 @@ object AndroidUtil {
         try {
             if (Build.VERSION.SDK.toInt() >= 11) {
                 window.setFlags(
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-                    WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED
+                        WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                        WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED
                 )
             }
         } catch (e: Exception) {
@@ -162,7 +153,7 @@ object AndroidUtil {
         var hasNet = false
         val context: Context = App.context
         val connManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         // 获取代表联网状态的NetWorkInfo对象
         val networkInfo = connManager.activeNetworkInfo
         // 获取当前的网络连接是否可用
@@ -188,9 +179,7 @@ object AndroidUtil {
         }
         try {
             val packageManager = context.packageManager
-            val packageInfo = packageManager.getPackageInfo(
-                context.packageName, 0
-            )
+            val packageInfo = packageManager.getPackageInfo(context.packageName, 0)
             versionName = packageInfo.versionName
             return versionName
         } catch (e: Exception) {

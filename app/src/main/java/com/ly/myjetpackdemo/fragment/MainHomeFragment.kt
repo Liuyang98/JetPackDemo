@@ -17,9 +17,8 @@ import com.zintow.myjetpackdemo.databinding.FragmentMainHomeBinding
 import java.util.*
 
 //协程
-class MainHomeFragment : BaseFragment(), View.OnClickListener {
+class MainHomeFragment : BaseFragment(){
     private val TAG = "DrawerFragment"
-    private val TITLES: Array<String> = arrayOf("全部", "文章", "视频")
     private lateinit var vm: MainHomeViewModel
     private lateinit var bind: FragmentMainHomeBinding
     private val fragments: MutableList<Fragment> = ArrayList()
@@ -46,9 +45,9 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
 
     private fun initFragment() {
         fragments.add(IndexFragment())
+        fragments.add(IndexFragment())
         fragments.add(GalleryFragment())
-        fragments.add(GalleryFragment())
-        MagicIndictorHelper.init(mActivity, TITLES, bind.magicTabLayout, bind.vp)
+        MagicIndictorHelper.init(mActivity, resources.getStringArray(R.array.index_title), bind.magicTabLayout, bind.vp)
         bind.vp.adapter = BasePagerAdapter(parentFragmentManager, fragments)
     }
 
@@ -57,24 +56,16 @@ class MainHomeFragment : BaseFragment(), View.OnClickListener {
         vm.title.set("标题")
         vm.liveData.value = MainHomeBean("tip")
         vm.liveData.observe(viewLifecycleOwner, Observer { Log.e(TAG, "数据发生改变:") })
-        vm.stateBarTop.observe(viewLifecycleOwner, Observer {
-            changeTitle(it)
-        })
-        Log.e("输出：",":"+vm.stateBarTop.value)
+        vm.stateBarTop.observe(viewLifecycleOwner, Observer { changeTitle(it) })
     }
 
-    //TODO 检查这个 vm.stateBarTop.observe的回调时机
-    private fun changeTitle(stateTop: Int?) {
-        if (bind.headLayout.tag == null && stateTop!=null) {
+    private fun changeTitle(stateTop: Int) {
+        if (bind.headLayout.tag == null) {
             bind.headLayout.tag = bind.headLayout.height + stateTop
             bind.headLayout.layoutParams.height = bind.headLayout.tag as Int
             bind.toolbar.layoutParams.height = stateTop
             bind.toolbar.layoutParams = bind.toolbar.layoutParams
-            Log.e("输出", "change$stateTop")
         }
-    }
-
-    override fun onClick(v: View) {
     }
 
 }

@@ -18,9 +18,7 @@ class GalleryFragment : BaseFragment() {
         indexViewModel = getFragmentViewModelProvider(this).get(IndexViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
-        indexViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        indexViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
         return root
     }
 }

@@ -59,14 +59,12 @@ class MainActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.P)
     private fun getNotchParams() {
-        Log.e(TAG, "getNotchParams")
         window.decorView.post {
             val windowInsets: WindowInsets = window.decorView.rootWindowInsets
             // 当全屏顶部显示黑边时，getDisplayCutout()返回为null
             val displayCutout = windowInsets.displayCutout
             if (displayCutout == null) {
                 vm.stateBarTop.value=AndroidUtil.getStatusHeight(this)
-                Log.e(TAG, "非刘海屏"+ vm.stateBarTop.value)
                 return@post
             }
             Log.e(TAG, "安全区域距离屏幕左边的距离 SafeInsetLeft:" + displayCutout.safeInsetLeft)
@@ -79,9 +77,9 @@ class MainActivity : BaseActivity() {
             if (rects.isEmpty()) {
                 Log.e(TAG, "不是刘海屏")
             } else {
-                Log.e("TAG", "刘海屏数量:" + rects.size)
+                Log.e(TAG, "刘海屏数量:" + rects.size)
                 for (rect in rects) {
-                    Log.e("TAG", "刘海屏区域：$rect")
+                    Log.e(TAG, "刘海屏区域：$rect")
                 }
             }
         }
