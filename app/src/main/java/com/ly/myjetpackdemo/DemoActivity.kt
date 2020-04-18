@@ -22,6 +22,7 @@ class DemoActivity : BaseActivity() {
         bind.imageView.setOnClickListener {
             val nb = MainHomeBean()
             nb.tip = "通过ViewModel修改Fragment中的数据"
+
             vm.liveData.value = nb
         }
     }
