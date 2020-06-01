@@ -5,9 +5,9 @@ import androidx.databinding.DataBindingUtil
 import com.ly.myjetpackdemo.base.BaseActivity
 import com.ly.myjetpackdemo.bean.MainHomeBean
 import com.ly.myjetpackdemo.config.App
-import com.zintow.myjetpackdemo.databinding.ActivityDemoBinding
 import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
 import com.zintow.myjetpackdemo.R
+import com.zintow.myjetpackdemo.databinding.ActivityDemoBinding
 
 class DemoActivity : BaseActivity() {
     private lateinit var bind: ActivityDemoBinding
@@ -18,11 +18,9 @@ class DemoActivity : BaseActivity() {
         bind = DataBindingUtil.setContentView(this, R.layout.activity_demo)
         bind.lifecycleOwner = this
         vm = (applicationContext as App).getAppViewModelProvider(this).get(MainHomeViewModel::class.java)
-
         bind.imageView.setOnClickListener {
             val nb = MainHomeBean()
             nb.tip = "通过ViewModel修改Fragment中的数据"
-
             vm.liveData.value = nb
         }
     }

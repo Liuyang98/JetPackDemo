@@ -12,12 +12,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.zintow.myjetpackdemo.R
 import com.ly.myjetpackdemo.base.BaseActivity
 import com.ly.myjetpackdemo.config.App
 import com.ly.myjetpackdemo.util.AndroidUtil
-import com.zintow.myjetpackdemo.databinding.ActivityMainBinding
 import com.ly.myjetpackdemo.viewmodel.MainHomeViewModel
+import com.zintow.myjetpackdemo.R
+import com.zintow.myjetpackdemo.databinding.ActivityMainBinding
 import java.lang.reflect.Method
 
 class MainActivity : BaseActivity() {
@@ -37,6 +37,8 @@ class MainActivity : BaseActivity() {
             setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
             bind.drawerLayout
         )
+
+
         bind.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
         bangCheck()
     }
@@ -64,7 +66,7 @@ class MainActivity : BaseActivity() {
             // 当全屏顶部显示黑边时，getDisplayCutout()返回为null
             val displayCutout = windowInsets.displayCutout
             if (displayCutout == null) {
-                vm.stateBarTop.value=AndroidUtil.getStatusHeight(this)
+                vm.stateBarTop.value = AndroidUtil.getStatusHeight(this)
                 return@post
             }
             Log.e(TAG, "安全区域距离屏幕左边的距离 SafeInsetLeft:" + displayCutout.safeInsetLeft)
